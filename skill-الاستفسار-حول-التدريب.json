@@ -1,0 +1,335 @@
+{
+  "intents": [
+    {
+      "intent": "الاستفسار_حول_مدة_التدريب",
+      "examples": [
+        {
+          "text": "عدد ساعات التدريب"
+        },
+        {
+          "text": "فترة التدريب"
+        },
+        {
+          "text": "كم ساعة تدريبية"
+        },
+        {
+          "text": "كم مدة التدريب"
+        },
+        {
+          "text": "مدة"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "الترحيب",
+      "examples": [
+        {
+          "text": "أهلا وسهلا"
+        },
+        {
+          "text": "السلام عليكم"
+        },
+        {
+          "text": "اهلين"
+        },
+        {
+          "text": "سلام"
+        },
+        {
+          "text": "صباح الخير"
+        },
+        {
+          "text": "مرحبا"
+        },
+        {
+          "text": "مساء الخير"
+        },
+        {
+          "text": "هاي"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "الشهادة",
+      "examples": [
+        {
+          "text": "كيف يمكن الحصول على الشهادة"
+        },
+        {
+          "text": "هل التدريب معتمد"
+        },
+        {
+          "text": "هل يوجد شهادة"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "بداية_التدريب",
+      "examples": [
+        {
+          "text": "البداية"
+        },
+        {
+          "text": "بداية"
+        },
+        {
+          "text": "بداية التدريب"
+        },
+        {
+          "text": "تاريخ التدريب"
+        },
+        {
+          "text": "متى تاريخ بداية التدريب"
+        },
+        {
+          "text": "متى يبدأ التدريب"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "شروط_القبول",
+      "examples": [
+        {
+          "text": "الشروط"
+        },
+        {
+          "text": "القبول"
+        },
+        {
+          "text": "شروط التقديم"
+        },
+        {
+          "text": "شروط القبول"
+        },
+        {
+          "text": "ما المطلوب للتقديم"
+        },
+        {
+          "text": "ماهي الشروط"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "نهاية_التدريب",
+      "examples": [
+        {
+          "text": "النهاية"
+        },
+        {
+          "text": "تاريخ الانتهاء"
+        },
+        {
+          "text": "متى ينتهي"
+        },
+        {
+          "text": "متى ينتهي التدريب"
+        },
+        {
+          "text": "نهاية التدريب"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "ينتهي التدريب في 12 أغسطس 2021"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#نهاية_التدريب",
+      "dialog_node": "node_2_1625730073921",
+      "previous_sibling": "node_4_1625730307660"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "يمنح المتدرب شهادة حضور إذا أتم 75% من مدة التدريب"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#الشهادة",
+      "dialog_node": "node_4_1625729904765",
+      "previous_sibling": "node_8_1625730021159"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "يتطلب للقبول في التدريب:\nلايقل العمر عن 18 عام\nخبرة في استخدام الحاسب الآلي\nتطبيق توكلنا"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "conditions": "#شروط_القبول",
+      "dialog_node": "node_4_1625730307660",
+      "previous_sibling": "مرحبا"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "مرحبا"
+              },
+              {
+                "text": "اهلين"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#الترحيب",
+      "dialog_node": "node_7_1625678060257",
+      "previous_sibling": "node_4_1625729904765"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "التدريب يستمر لمدة 6 أسابيع"
+              },
+              {
+                "text": "لمدة شهر ونصف"
+              },
+              {
+                "text": "مدة التدريب 320 ساعة"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#الاستفسار_حول_مدة_التدريب",
+      "dialog_node": "node_8_1625729220517",
+      "previous_sibling": "node_7_1625678060257"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "يبدأ التدريب في 10 يوليو 2021"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#بداية_التدريب",
+      "dialog_node": "node_8_1625730021159",
+      "previous_sibling": "node_2_1625730073921"
+    },
+    {
+      "type": "standard",
+      "title": "أي شيء آخر",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "لم أفهم، يمكنك محاولة اعادة الصياغة"
+              },
+              {
+                "text": "هل يمكنك اعادة صياغة عبارتك؟ أنا لا فهم"
+              },
+              {
+                "text": "لم أفهم قصدك"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "أي شيء آخر",
+      "previous_sibling": "node_8_1625729220517",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "مرحبا",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "مرحبا، كيف يمكنني مساعدتك؟"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "مرحبا"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": ":هل قصدت",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "كل ما سبق خطأ"
+    },
+    "human_agent_assist": {
+      "prompt": ":هل قصدت"
+    }
+  },
+  "learning_opt_out": false,
+  "name": "الاستفسار حول التدريب",
+  "language": "ar",
+  "description": ""
+}
